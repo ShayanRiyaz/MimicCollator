@@ -37,3 +37,6 @@ mimic_variants:
 ```console
 python main.py
 ```
+
+
+### Output .h5 Structure
