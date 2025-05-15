@@ -40,3 +40,31 @@ python main.py
 
 
 ### Output .h5 Structure
+
+```
+fix: {
+    subj_id
+    rec_id
+    files
+    af_status
+    subject_notes
+},
+ppg: {
+    v
+    fs
+    method
+    label
+},
+ekg: {
+    v
+    fs
+    method
+    label
+},
+bp: {
+    v
+    fs
+    method
+    label
+    }
+```
