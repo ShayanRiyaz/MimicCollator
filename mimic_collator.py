@@ -23,7 +23,6 @@ from pathlib import Path
 from typing import Iterator, Optional, Tuple, Dict, Any
 from datetime import datetime, timezone
 from urllib.request import urlretrieve
-from get_typecast import get_typecast
 import h5py
 
 session = requests.Session()
@@ -55,6 +54,22 @@ def write_subject_record(h5_file, subj_id, data):
 
             else:
                 raise TypeError(f"Unsupported type for {section}/{k}: {type(v)}")
+
+def get_typecast(cfg, folder_location=list(), cast_fn=str, default=None, verbose=False):
+    raw = cfg
+    for k in folder_location:
+        if isinstance(raw, dict):
+            raw = raw.get(k, None)
+        else:
+            raw = None
+        if raw is None:
+            break
+    try:
+        return cast_fn(raw)
+    except Exception:
+        if verbose:
+            print(f"⚠️  Failed to cast {folder_location.join('/')}={raw!r}, defaulting to {default!r}")
+        return default
 
 class MimicCollator():
     def __init__(self, config,verbose = False,search_cache=True):
