@@ -1,4 +1,9 @@
-# MimicCollator
+# Mimic Collator
+MIMIC are large, freely-available database comprising deidentified health-related data associated with over patients who stayed in critical care units of the Beth Israel Deaconess Medical Center.
+
+
+
+## This Repository
 An independent MimicCollator class repository
 
 
