@@ -63,31 +63,34 @@ python main.py
 ```
 ## Output .h5 Structure
 
-```JSON
-fix: {
-    subj_id,rec_id
-    files
-    af_status
-    subject_notes
-},
-ppg: {
-    v
-    fs
-    method
-    label
-},
-ekg: {
-    v
-    fs
-    method
-    label
-},
-bp: {
-    v
-    fs
-    method
-    label
-    }
+```json
+{
+  "fix": {
+    "subj_id": "<string>",
+    "rec_id": "<string>",
+    "files": "<string>",
+    "af_status": "<int>",
+    "subject_notes": "<any>"
+  },
+  "ppg": {
+    "v":       "<number[]>",
+    "fs":      "<int>",
+    "method":  "<string>",
+    "label":   "<string>"
+  },
+  "ekg": {
+    "v":       "<number[]>",
+    "fs":      "<int>",
+    "method":  "<string>",
+    "label":   "<string>"
+  },
+  "bp": {
+    "v":       "<number[]>",
+    "fs":      "<int>",
+    "method":  "<string>",
+    "label":   "<string>"
+  }
+}
 ```
 
 ## Key Concepts & Code Structure
