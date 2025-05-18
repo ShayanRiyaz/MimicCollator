@@ -17,10 +17,19 @@ def build_config(base_cfg, mimic_num, root_folder, custom_records):
         "mimic_info": {
             "mimic_num": mimic_num,
             "mimic_path": base_cfg["mimic_variants"][mimic_num]["mimic_path"],
+            "max_subjects_available" : base_cfg["mimic_variants"][mimic_num]["max_subjects_available"]
+        },
+        "subject_properties": {
+            "custom_label": base_cfg['subject_properties']["custom_label"]
+        },
+        "required_signals": {
+            "ecg_labels" : base_cfg["required_signals"]["ecg_labels"],
+            "ppg_labels" : base_cfg["required_signals"]["ppg_labels"],
+            "abp_labels" : base_cfg["required_signals"]["abp_labels"],
         },
         "version_num": base_cfg["version_num"],
         "min_minutes": base_cfg["min_minutes"],
-        "num_subjects": base_cfg["mimic_variants"][mimic_num]["max_subjects"],
+        "num_subjects": base_cfg["mimic_variants"][mimic_num]["required_subjects"],
         "categories_of_interest": [],
         "custom_records": custom_records,
         "ethnicity_extract": base_cfg["ethnicity_extract"],
@@ -43,5 +52,5 @@ if __name__ == "__main__":
             custom_records = pd.read_csv(ann_path, header=0, index_col=0, dtype=str)
         config = build_config(base_cfg, mimic_num, root_dir, custom_records)
 
-        collator = MimicCollator(config, verbose=True,search_cache=False)
+        collator = MimicCollator(config, verbose=True,search_cache=True)
         collator.collate_dataset(load_waveforms=True)

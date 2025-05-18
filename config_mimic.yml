@@ -1,20 +1,24 @@
 version_num: 1
-min_minutes: 30
-ethnicity_extract: false
+min_minutes: 20
+ethnicity_extract: False
+
+subject_properties:
+  custom_label: 0
 
 required_signals:
-  ecg_labels: ['II']
-  ppg_labels: ['Pleth']
+  ecg_labels: ['ii']
+  ppg_labels: ['pleth']
   abp_labels: ['abp', 'art']
-  custom_label: 0
 
 mimic_variants:
   "3":
     mimic_path: 'mimic3wdb-matched/1.0/'
-    max_subjects: 20 # Max Available 10999
+    max_subjects_available: 10999 #10999
+    required_subjects: 10999 # Max Available 10999
     annotation_csv: 'mimic3_annotations.csv'
   "4":
     mimic_path: 'mimic4wdb/0.1.0/'
-    max_subjects: 20 # 198
+    max_subjects_available: 189
+    required_subjects: 189 # 198
     annotation_csv: null
 
