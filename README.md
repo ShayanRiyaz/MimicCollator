@@ -124,7 +124,7 @@ python main.py
 -	Hard-coded signal support only ECG (lead II), PPG, ABP.
 -	Rigid output schema: fixed keys (fix, ppg, ekg, bp)—no dynamic signal grouping.
 -	Basic error handling: skips on exception, lacks retry or detailed logging.
--	~~No built-in filtering or QC: assumes cleaner signals or external preprocessing.~~ (Not the purpopse of this project)
+-	~~No built-in filtering or QC: assumes cleaner signals or external preprocessing.~~ (Not the purpose of this project)
 
 
 ## Contribution & License
